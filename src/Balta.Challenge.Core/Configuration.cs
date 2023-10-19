@@ -7,5 +7,6 @@ public static class Configuration
     public class PasswordConfiguration
     {
         public int Length { get; } = 8;
+        public string Salt { get; } = string.Empty;
     }
 }
