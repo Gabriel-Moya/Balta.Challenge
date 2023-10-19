@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\programacao\\challengeBalta\\Balta.Challenge\\Challenge\\Challenge.csproj": {}
+    "C:\\dev\\Gabriel\\Balta.Challenge\\Challenge.csproj": {}
   },
   "projects": {
-    "D:\\programacao\\challengeBalta\\Balta.Challenge\\Challenge\\Challenge.csproj": {
+    "C:\\dev\\Gabriel\\Balta.Challenge\\Challenge.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\programacao\\challengeBalta\\Balta.Challenge\\Challenge\\Challenge.csproj",
+        "projectUniqueName": "C:\\dev\\Gabriel\\Balta.Challenge\\Challenge.csproj",
         "projectName": "Challenge",
-        "projectPath": "D:\\programacao\\challengeBalta\\Balta.Challenge\\Challenge\\Challenge.csproj",
-        "packagesPath": "C:\\Users\\sek_h\\.nuget\\packages\\",
-        "outputPath": "D:\\programacao\\challengeBalta\\Balta.Challenge\\Challenge\\obj\\",
+        "projectPath": "C:\\dev\\Gabriel\\Balta.Challenge\\Challenge.csproj",
+        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
+        "outputPath": "C:\\dev\\Gabriel\\Balta.Challenge\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\programacao\\VisualStudio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sek_h\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -72,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
