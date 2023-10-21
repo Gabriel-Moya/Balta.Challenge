@@ -22,6 +22,9 @@ public struct Password
     public static Password Create(string text)
         => new (text);
 
+    public bool PasswordIsValid(string text)
+        => HashText(text) == Hash;
+
     // Private Methods
     private static string HashText(string text)
     {
