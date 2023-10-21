@@ -8,7 +8,11 @@
 
   <ItemGroup>
     <Folder Include="Contexts\Account\UseCases\" />
-    <Folder Include="Contexts\Addresses\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flunt" Version="2.0.5" />
+    <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
   </ItemGroup>
 
 </Project>
