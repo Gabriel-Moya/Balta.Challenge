@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Balta.Challenge.Core.Contexts.Account.Entities;
+using Balta.Challenge.Data.Contexts.Account.Mappings;
 using Balta.Challenge.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,11 +9,12 @@ public class ApiDbContext : DbContext
 {
     public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options) { }
 
-    public DbSet<Teste> Teste { get; set; }
+    public DbSet<User> Users { get; set; } = null!;
+
+    //public DbSet<Teste> Teste { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
+        builder.ApplyConfiguration(new UserMapping());
     }
 }

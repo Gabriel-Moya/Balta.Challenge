@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Balta.Challenge.Core\Balta.Challenge.Core.csproj" />
     <ProjectReference Include="..\Balta.Challenge.Domain\Balta.Challenge.Domain.csproj" />
   </ItemGroup>
 
