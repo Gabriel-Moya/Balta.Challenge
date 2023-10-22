@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Balta.Challenge.Core.Contexts.Address.ValueObjects.Exceptions;
+﻿using Balta.Challenge.Core.Contexts.Address.ValueObjects.Exceptions;
 
 namespace Balta.Challenge.Core.Contexts.Address.ValueObjects;
-public readonly struct IBGECode
+public class IBGECode
 {
     // Constructors
+    protected IBGECode() { }
     private IBGECode(int value)
     {
         InvalidIBGEException.ThrowIfIsInvalid(value);
         Value = value;
     }
 
-    public int Value { get; } = null!;
+    public int Value { get; }
 
     public static IBGECode Create(int value)
        => new(value);
+
+    public static implicit operator int(IBGECode ibgeCode)
+     => ibgeCode.Value;
 }

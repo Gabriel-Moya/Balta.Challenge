@@ -1,4 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.ComponentModel;
 
 namespace Balta.Challenge.Web.Startup;
 
@@ -10,6 +13,7 @@ public static class ConfigureSwagger
 
         services.AddSwaggerGen(c =>
         {
+            c.CustomSchemaIds(type => type.ToString());
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "Desafio Balta", Description = "Api criada para desafio Balta.", Version = "v1" });
         });
 

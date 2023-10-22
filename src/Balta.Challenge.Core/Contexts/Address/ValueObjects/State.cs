@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Balta.Challenge.Core.Contexts.Address.ValueObjects.Exceptions;
+﻿using Balta.Challenge.Core.Contexts.Address.ValueObjects.Exceptions;
 
 namespace Balta.Challenge.Core.Contexts.Address.ValueObjects;
-public readonly struct State
+public class State
 {
     // Constructors
+    protected State() { }
     private State(string value)
     {
         InvalidStateException.ThrowIfIsInvalid(value);

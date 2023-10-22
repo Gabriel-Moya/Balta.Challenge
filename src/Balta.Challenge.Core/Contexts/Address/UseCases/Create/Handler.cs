@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
-using Balta.Challenge.Core.Contexts.Address.UseCases.Create.Contracts;
+﻿using Balta.Challenge.Core.Contexts.Address.UseCases.Create.Contracts;
 using Balta.Challenge.Core.Contexts.Address.ValueObjects;
 using Balta.Challenge.Core.Contexts.Address.Entities;
+using MediatR;
 
 namespace Balta.Challenge.Core.Contexts.Address.UseCases.Create;
-public class Handler 
+public class Handler : IRequestHandler<Request, Response>
 {
     private readonly IRepository _repository;
 
     public Handler(IRepository repository)
         => _repository = repository;
 
-    public async Task<Response> Handle(Request request)
+    public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
     {
         try
         {
@@ -46,7 +41,7 @@ public class Handler
 
         try
         {
-            var exists = await _repository.AnyAsync(IBGECode.Value);
+            var exists = await _repository.AnyAsync(request.Id, cancellationToken);
             if (exists)
                 return new Response("Código do IBGE já está cadastrado", 400);
         }
@@ -57,13 +52,13 @@ public class Handler
 
         try
         {
-            await _repository.SaveAsync(locale);
+            await _repository.SaveAsync(locale, cancellationToken);
         }
         catch
         {
             return new Response("Não foi possível salvar a cidade", 500);
         }
 
-        return new Response("Cidade criada com sucesso", new ResponseData(locale.Id.Value,locale.State.Value,locale.City));
+        return new Response("Cidade criada com sucesso", new ResponseData(locale.IBGECode.Value,locale.State.Value,locale.City));
     }
 }

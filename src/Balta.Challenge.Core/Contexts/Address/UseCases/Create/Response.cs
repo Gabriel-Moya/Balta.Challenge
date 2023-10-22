@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Flunt.Notifications;
+﻿using Flunt.Notifications;
 
 
 namespace Balta.Challenge.Core.Contexts.Address.UseCases.Create;
-public class Response 
+public class Response : Shared.UseCases.Response
 {
     public Response(string message, int statusCode, IEnumerable<Notification>? notifications = null)
     {

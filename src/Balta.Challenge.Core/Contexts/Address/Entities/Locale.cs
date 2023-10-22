@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Balta.Challenge.Core.Contexts.Address.ValueObjects;
+﻿using Balta.Challenge.Core.Contexts.Address.ValueObjects;
+using Balta.Challenge.Core.Contexts.Shared.Entities;
 
 namespace Balta.Challenge.Core.Contexts.Address.Entities;
-public class Locale
+public class Locale : Entity
 {
-    public Locale(IBGECode id, State state, string city)
+    public Locale() { }
+    public Locale(IBGECode ibgeCode, State state, string city)
     {
-        Id = id;
+        IBGECode = ibgeCode;
         State = state;
         City = city;
     }
 
-    public IBGECode Id { get; set; }
+    public IBGECode IBGECode { get; set; }
     public State State { get; set; }
     public string City { get; set; }
 }

@@ -7,7 +7,7 @@ namespace Balta.Challenge.Core.Contexts.Account.ValueObjects;
 public struct Password
 {
     // Constructors
-    public Password(string text)
+    private Password(string text)
     {
         InvalidPasswordException.ThrowIfIsNullOrEmpty(text);
         InvalidPasswordException.ThrowIfTextLowerThan(text, Configuration.Password.Length);
@@ -17,6 +17,13 @@ public struct Password
 
     // Public Properties
     public string Hash { get; private set; } = string.Empty;
+
+    // Public Methods
+    public static Password Create(string text)
+        => new (text);
+
+    public bool PasswordIsValid(string text)
+        => HashText(HashText(text)) == Hash;
 
     // Private Methods
     private static string HashText(string text)
