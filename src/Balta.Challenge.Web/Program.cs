@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 var builder = WebApplication.CreateBuilder(args);
 builder.AddConfigurations();
 builder.AddMediator();
+builder.AddJwtAuthentication();
 
 builder.Services.AddSwaggerConfiguration();
 builder.Services.DependencyInjectorApi(builder.Configuration);
@@ -19,7 +20,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSwaggerConfiguration();
-
 app.AddControllers();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();

@@ -34,6 +34,7 @@ public static class JwtExtensions
         claimsIdentity.AddClaim(new Claim("Id", user.Id));
         claimsIdentity.AddClaim(new Claim(ClaimTypes.GivenName, user.Name));
         claimsIdentity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
+        claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "BaltaChallenge"));
 
         return claimsIdentity;
     }
