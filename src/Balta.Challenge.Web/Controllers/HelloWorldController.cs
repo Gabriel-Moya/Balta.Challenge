@@ -4,6 +4,6 @@ public static class HelloWorldController
 {
     public static void HelloWorldDemo(this WebApplication app)
     {
-        app.MapGet("/", () => "Hello World!");
+        app.MapGet("/hello", () => "Hello World!");
     }
 }
