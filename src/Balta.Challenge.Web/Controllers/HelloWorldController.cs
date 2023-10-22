@@ -4,6 +4,7 @@ public static class HelloWorldController
 {
     public static void HelloWorldDemo(this WebApplication app)
     {
-        app.MapGet("/hello", () => "Hello World!");
+        app.MapGet("/hello", () => "Hello World!")
+            .RequireAuthorization("BaltaChallenge");
     }
 }
