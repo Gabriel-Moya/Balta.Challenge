@@ -17,6 +17,11 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	  <ProjectReference Include="..\Balta.Challenge.IoC\Balta.Challenge.IoC.csproj" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Balta.Challenge.Core\Balta.Challenge.Core.csproj" />
   </ItemGroup>
 
 </Project>

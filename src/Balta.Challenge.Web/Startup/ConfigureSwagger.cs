@@ -10,6 +10,7 @@ public static class ConfigureSwagger
 
         services.AddSwaggerGen(c =>
         {
+            c.CustomSchemaIds(type => type.ToString());
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "Desafio Balta", Description = "Api criada para desafio Balta.", Version = "v1" });
         });
 
