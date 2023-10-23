@@ -8,6 +8,7 @@ public static class ConfigureControllers
     {
         HelloWorldController.HelloWorldDemo(app);
         AccountController.MapAccountEndpoints(app);
+        LocaleController.MapLocaleEndpoints(app);
         // Add news controllers here
     }
 }

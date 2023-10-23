@@ -3,6 +3,7 @@ using System;
 using Balta.Challenge.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Balta.Challenge.Data.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    partial class ApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231022183212_crud")]
+    partial class crud
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,17 +56,14 @@ namespace Balta.Challenge.Data.Migrations
 
             modelBuilder.Entity("Balta.Challenge.Core.Contexts.Address.Entities.Locale", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("city");
+                        .HasColumnName("City");
 
                     b.HasKey("Id");
 
@@ -72,15 +72,14 @@ namespace Balta.Challenge.Data.Migrations
 
             modelBuilder.Entity("Balta.Challenge.Core.Contexts.Address.Entities.Locale", b =>
                 {
-                    b.OwnsOne("Balta.Challenge.Core.Contexts.Address.ValueObjects.State", "State", b1 =>
+                    b.OwnsOne("Balta.Challenge.Core.Contexts.Address.ValueObjects.IBGECode", "IBGECode", b1 =>
                         {
-                            b1.Property<int>("LocaleId")
-                                .HasColumnType("integer");
+                            b1.Property<Guid>("LocaleId")
+                                .HasColumnType("uuid");
 
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasColumnType("text")
-                                .HasColumnName("state");
+                            b1.Property<int>("Value")
+                                .HasColumnType("integer")
+                                .HasColumnName("IBGEcode");
 
                             b1.HasKey("LocaleId");
 
@@ -89,6 +88,27 @@ namespace Balta.Challenge.Data.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("LocaleId");
                         });
+
+                    b.OwnsOne("Balta.Challenge.Core.Contexts.Address.ValueObjects.State", "State", b1 =>
+                        {
+                            b1.Property<Guid>("LocaleId")
+                                .HasColumnType("uuid");
+
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("State");
+
+                            b1.HasKey("LocaleId");
+
+                            b1.ToTable("Locales");
+
+                            b1.WithOwner()
+                                .HasForeignKey("LocaleId");
+                        });
+
+                    b.Navigation("IBGECode")
+                        .IsRequired();
 
                     b.Navigation("State")
                         .IsRequired();
