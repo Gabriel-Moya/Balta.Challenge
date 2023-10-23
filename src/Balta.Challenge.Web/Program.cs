@@ -1,6 +1,8 @@
 using Balta.Challenge.Web.Startup;
 using Balta.Challenge.IoC;
 using Balta.Challenge.Web.Extensions;
+using Balta.Challenge.Core.Enums;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddConfigurations();
