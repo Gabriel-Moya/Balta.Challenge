@@ -10,12 +10,11 @@ public class Repository : IRepository
     public Repository(ApiDbContext context)
         => _context = context;
 
-    public Task<bool> AnyAsync(int value, CancellationToken cancellationToken)
+    public Task<bool> AnyAsync(int id, CancellationToken cancellationToken)
         => _context
             .Locales
             .AsNoTracking()
-            .Include(x => x.IBGECode)
-            .AnyAsync(x => x.IBGECode.Value == value, cancellationToken);
+            .AnyAsync(x => x.Id == id, cancellationToken);
 
     public async Task SaveAsync(Locale locale, CancellationToken cancellationToken)
     {

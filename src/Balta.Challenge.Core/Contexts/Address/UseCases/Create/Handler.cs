@@ -59,6 +59,6 @@ public class Handler : IRequestHandler<Request, Response>
             return new Response("Não foi possível salvar a cidade", 500);
         }
 
-        return new Response("Cidade criada com sucesso", new ResponseData(locale.IBGECode.Value,locale.State.Value,locale.City));
+        return new Response("Cidade criada com sucesso", new ResponseData(locale.Id, locale.State.Value, locale.City));
     }
 }

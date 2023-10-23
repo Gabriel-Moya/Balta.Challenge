@@ -21,8 +21,8 @@ namespace Balta.Challenge.Data.Contexts.Address.UseCases.Read
             IQueryable<Locale> query = _context
                 .Locales
                 .AsNoTracking()
-                .Include(x => x.IBGECode)
                 .Include(x => x.State);
+                //.Include(x => x.Id)
 
             if (filter == FilterEnum.City)
             {
@@ -36,7 +36,7 @@ namespace Balta.Challenge.Data.Contexts.Address.UseCases.Read
 
             if (filter == FilterEnum.IBGECode)
             {
-                query = query.Where(x => x.IBGECode.Value.ToString().Contains(expression));
+                query = query.Where(x => x.Id.ToString().Contains(expression));
             }
 
             return query.ToListAsync();

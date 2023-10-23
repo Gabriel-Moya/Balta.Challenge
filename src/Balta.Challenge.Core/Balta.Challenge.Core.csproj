@@ -7,13 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Contexts\Addresses\**" />
+    <EmbeddedResource Remove="Contexts\Addresses\**" />
+    <None Remove="Contexts\Addresses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Contexts\Account\UseCases\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Flunt" Version="2.0.5" />
     <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
-    <Folder Include="Contexts\Addresses\" />
   </ItemGroup>
 
   <ItemGroup>

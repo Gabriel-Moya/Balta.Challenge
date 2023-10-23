@@ -11,16 +11,15 @@ public class LocaleMapping : IEntityTypeConfiguration<Locale>
 
         builder.HasKey(x => x.Id);
 
-        builder.OwnsOne(x => x.IBGECode)
-          .Property(x => x.Value)
-          .HasColumnName("IBGEcode");
+        builder.Property(x => x.Id)
+          .HasColumnName("id");
 
         builder.OwnsOne(x => x.State)
          .Property(x => x.Value)
-         .HasColumnName("State");
+         .HasColumnName("state");
 
         builder
         .Property(x => x.City)
-        .HasColumnName("City");
+        .HasColumnName("city");
     }
 }

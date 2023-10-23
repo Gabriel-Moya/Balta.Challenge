@@ -1,18 +1,18 @@
 ﻿using Balta.Challenge.Core.Contexts.Address.ValueObjects;
-using Balta.Challenge.Core.Contexts.Shared.Entities;
 
 namespace Balta.Challenge.Core.Contexts.Address.Entities;
-public class Locale : Entity
+
+public class Locale
 {
     public Locale() { }
-    public Locale(IBGECode ibgeCode, State state, string city)
+    public Locale(IBGECode id, State state, string city)
     {
-        IBGECode = ibgeCode;
+        Id = id;
         State = state;
         City = city;
     }
 
-    public IBGECode IBGECode { get; set; }
+    public int Id { get; set; }
     public State State { get; set; }
     public string City { get; set; }
 }
