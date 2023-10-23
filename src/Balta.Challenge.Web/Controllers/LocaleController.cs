@@ -19,7 +19,8 @@ public static class LocaleController
             return result.IsSuccess
                 ? Results.Created($"/api/v1/locale/{result.Data?.Id}", result.Data)
                 : Results.Json(result, statusCode: result.StatusCode);
-        });
+        })
+            .RequireAuthorization("BaltaChallenge");
 
         app.MapGet("/api/v1/locales", async (
             [FromQuery] string expression,
@@ -32,7 +33,8 @@ public static class LocaleController
              return result.IsSuccess
                 ? Results.Ok(result)
                 : Results.Json(result, statusCode: result.StatusCode);
-         });
+         })
+            .RequireAuthorization("BaltaChallenge");
 
         app.MapPut("/api/v1/locales/", async (
             Core.Contexts.Address.UseCases.Update.Request request,
@@ -44,7 +46,8 @@ public static class LocaleController
             return result.IsSuccess
                 ? Results.Ok(result)
                 : Results.Json(result, statusCode: result.StatusCode);
-        });
+        })
+            .RequireAuthorization("BaltaChallenge");
 
         app.MapDelete("/api/v1/locales/", async (
             [FromBody] Core.Contexts.Address.UseCases.Delete.Request request,
@@ -56,6 +59,7 @@ public static class LocaleController
             return result.IsSuccess
                 ? Results.Ok(result)
                 : Results.Json(result, statusCode: result.StatusCode);
-        });
+        })
+            .RequireAuthorization("BaltaChallenge");
     }
 }
