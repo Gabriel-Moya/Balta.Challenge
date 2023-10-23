@@ -50,6 +50,14 @@ public static class DependencyInjector
         services.AddTransient<
          Core.Contexts.Address.UseCases.Create.Contracts.IRepository,
          Data.Contexts.Address.UseCases.Create.Repository>();
+
+        services.AddTransient<
+         Core.Contexts.Address.UseCases.Update.Contracts.IRepository,
+         Data.Contexts.Address.UseCases.Update.Repository>();
+
+        services.AddTransient<
+         Core.Contexts.Address.UseCases.Delete.Contracts.IRepository,
+         Data.Contexts.Address.UseCases.Delete.Repository>();
         #endregion
 
         return services;
